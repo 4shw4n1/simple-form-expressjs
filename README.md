@@ -1,5 +1,6 @@
-# simple-form-expressjs
+# Form - o - Express.js 
 
+An attempt to learn and getting acquainted with Node.js and its shenanigans :relaxed:
 This is a simple form based web server application.
 
 ## Getting Started
@@ -23,12 +24,13 @@ $ npm install pug
 
 Run the application
 ```bash
-$ nodemon
+$ nodemon index.js
 ```
 
 The server runs at port 80 i.e. http://localhost:3000/
 
 ## Next Step
 Open localhost:80 in your browser.
-**Explore the features (Tough task ik), get familiar with the codebase**
+**Explore the features (Tough task ik :joy:), get familiar with the codebase**
+## Feel free to ping me :v:
 
