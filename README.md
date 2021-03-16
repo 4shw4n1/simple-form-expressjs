@@ -27,7 +27,7 @@ Run the application
 $ nodemon index.js
 ```
 
-The server runs at port 80 i.e. http://localhost:3000/
+The server runs at port 80 i.e. http://localhost/ or http://localhost/80
 
 ## Next Step
 Open localhost:80 in your browser.
