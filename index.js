@@ -1,4 +1,5 @@
 const express = require('express');
+const fs = require('fs');
 const app = express();
 const path = require('path');
 const port = 80;
@@ -16,14 +17,15 @@ app.use('/static', express.static('static')) // For serving static files
 //Pug template endpoint
 // Our pug demo endpoint
 app.get("/demo", (req, res)=>{ 
-    res.status(200).render('demo', { title: 'Hey Harry', message: 'Hello there and thanks for telling me how to use pug!' })
+    res.status(200).render('demo', { title: 'Hey!', message: 'Hello there and thanks for telling me how to use pug!' })
 });
+
+//Reset output.txt
+fs.writeFileSync('output.txt', '[*] Server session started, listening to POST request...\n\n');
 
 //GET request
 app.get("/", (req, res)=>{ 
-    const con = "User: Backend is tough :( Meanwhile Node.js goes brrr..."
-    const params = {'title': 'Express WebApp', 'heading': 'Welcome', "content": con}
-    res.status(200).render('index.pug', params);
+    res.status(200).render('index.pug');
 });
 
 //POST request
@@ -34,17 +36,11 @@ app.post("/", (req, res) => {
     let section = req.body.section;
     let dept = req.body.dept;
     let msg = req.body.msg;
-
+    let outputToWrite = `Name: ${myname}, from section ${section}, department: ${dept}, says: ${msg}\n`;
+    fs.appendFileSync('output.txt', outputToWrite);
+    const params = {'message': 'Your form has been submitted successfully'};
+    res.status(200).render('index.pug', params);
 });
-
-/*
-app.get("/", (req, res) => {
-    res.send('This is first express app');
-});
-
-app.get("/about", (req, res) => {
-    res.send('This is About page of first express app');
-});*/
 
 //Start Server
 app.listen(port, () => {
