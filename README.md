@@ -28,6 +28,7 @@ $ nodemon index.js
 ```
 
 The server runs at port 80 i.e. http://localhost/ or http://localhost/80
+The app currently uses File writing system as of now. Though you can always extend it to MongoDB Atlas connection (that's what I did for my hosting purpose. Current hosted here : https://secret-beach-73966.herokuapp.com/)
 
 ## Next Step
 Open localhost:80 in your browser.
